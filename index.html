@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mahabaleshwar Trip 💸</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --purple:#7c4dff;
+    --pink:#ff4f9a;
+    --yellow:#ffd84d;
+    --blue:#48bfff;
+    --green:#54d99a;
+    --orange:#ff914d;
+    --cream:#fff9ed;
+    --text:#30264a;
+    --muted:#766d87;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 10% 10%, #ffe0f0 0, transparent 25%),
+        radial-gradient(circle at 90% 10%, #dff5ff 0, transparent 25%),
+        radial-gradient(circle at 80% 90%, #fff0bb 0, transparent 25%),
+        #fffaf3;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:850px;
+    z-index:2;
+}
+
+.sticker{
+    display:inline-block;
+    background:var(--yellow);
+    padding:10px 20px;
+    border-radius:50px;
+    font-weight:800;
+    transform:rotate(-3deg);
+    box-shadow:5px 6px 0 #d9b300;
+    animation:float 3s ease-in-out infinite;
+}
+
+.hero h1{
+    font-family:'Baloo 2',cursive;
+    font-size:clamp(55px,10vw,110px);
+    line-height:.82;
+    margin:30px 0 20px;
+    letter-spacing:-4px;
+}
+
+.hero h1 span{
+    color:var(--pink);
+}
+
+.hero p{
+    font-size:18px;
+    color:var(--muted);
+}
+
+.start-btn{
+    margin-top:30px;
+    border:none;
+    background:var(--purple);
+    color:white;
+    padding:16px 30px;
+    border-radius:50px;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 8px 0 #5130b5;
+    transition:.2s;
+}
+
+.start-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 11px 0 #5130b5;
+}
+
+.start-btn:active{
+    transform:translateY(4px);
+    box-shadow:0 4px 0 #5130b5;
+}
+
+/* Floating emojis */
+
+.float-item{
+    position:absolute;
+    font-size:42px;
+    animation:float 4s ease-in-out infinite;
+    user-select:none;
+}
+
+.f1{left:8%;top:20%}
+.f2{right:9%;top:25%;animation-delay:1s}
+.f3{left:15%;bottom:18%;animation-delay:2s}
+.f4{right:15%;bottom:15%;animation-delay:.5s}
+
+/* ---------------- SECTION ---------------- */
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Baloo 2',cursive;
+    font-size:46px;
+    margin:0 0 10px;
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:40px;
+}
+
+/* ---------------- REVEAL CARDS ---------------- */
+
+.reveal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.reveal-card{
+    height:250px;
+    perspective:1000px;
+    cursor:pointer;
+}
+
+.card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .7s cubic-bezier(.2,.8,.2,1);
+    transform-style:preserve-3d;
+}
+
+.reveal-card.open .card-inner{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    backface-visibility:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(83,61,120,.12);
+}
+
+.card-front{
+    background:linear-gradient(135deg,#ffffff,#f4edff);
+    border:3px dashed #b9a7ff;
+}
+
+.card-front .emoji{
+    font-size:55px;
+}
+
+.card-front h3{
+    font-family:'Baloo 2';
+    font-size:30px;
+    margin:10px 0 0;
+}
+
+.tap{
+    color:var(--purple);
+    font-size:13px;
+    font-weight:700;
+    margin-top:8px;
+}
+
+.card-back{
+    transform:rotateY(180deg);
+    color:white;
+}
+
+.mp .card-back{
+    background:linear-gradient(135deg,#54d99a,#25a975);
+}
+
+.md .card-back{
+    background:linear-gradient(135deg,#ff914d,#f15d35);
+}
+
+.amount{
+    font-family:'Baloo 2';
+    font-size:70px;
+    font-weight:800;
+    line-height:1;
+}
+
+.pay-text{
+    margin-top:10px;
+    font-weight:700;
+}
+
+/* ---------------- SUMMARY ---------------- */
+
+.summary{
+    background:white;
+    border-radius:35px;
+    padding:35px;
+    box-shadow:0 20px 60px rgba(80,60,120,.12);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    padding:22px;
+    border-radius:24px;
+    text-align:center;
+}
+
+.stat:nth-child(1){background:#eee8ff}
+.stat:nth-child(2){background:#ffe7f1}
+.stat:nth-child(3){background:#e3f7ff}
+.stat:nth-child(4){background:#fff4c9}
+
+.stat .icon{
+    font-size:32px;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Baloo 2';
+    font-size:30px;
+    margin-top:5px;
+}
+
+.stat span{
+    font-size:12px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+/* ---------------- EXPENSES ---------------- */
+
+.expenses{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.expense{
+    background:white;
+    border-radius:20px;
+    padding:18px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 25px rgba(80,60,120,.07);
+    transition:.25s;
+}
+
+.expense:hover{
+    transform:translateX(5px);
+}
+
+.expense-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.expense-icon{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    background:#f1edff;
+    border-radius:15px;
+    font-size:23px;
+}
+
+.expense-name{
+    font-weight:700;
+}
+
+.expense-cat{
+    font-size:11px;
+    color:var(--muted);
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.expense-amount{
+    font-weight:800;
+    font-size:18px;
+}
+
+/* ---------------- CALC ---------------- */
+
+.math-card{
+    margin-top:30px;
+    background:linear-gradient(135deg,#7c4dff,#a66cff);
+    color:white;
+    border-radius:30px;
+    padding:30px;
+    text-align:center;
+}
+
+.math-card h3{
+    font-family:'Baloo 2';
+    font-size:30px;
+    margin:0 0 15px;
+}
+
+.math{
+    font-size:18px;
+    line-height:2;
+}
+
+.math strong{
+    font-size:26px;
+}
+
+/* ---------------- SHARE ---------------- */
+
+.share-card{
+    text-align:center;
+    background:#fff;
+    border-radius:35px;
+    padding:45px 25px;
+    box-shadow:0 20px 60px rgba(80,60,120,.12);
+}
+
+.share-card h2{
+    font-family:'Baloo 2';
+    font-size:42px;
+    margin:0 0 8px;
+}
+
+.share-card p{
+    color:var(--muted);
+}
+
+.share-btn{
+    border:0;
+    margin:8px;
+    padding:15px 25px;
+    border-radius:50px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.whatsapp{
+    background:#25d366;
+    color:white;
+}
+
+.copy{
+    background:#eee8ff;
+    color:#5130b5;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    color:#8b819c;
+    font-size:13px;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(-15px) rotate(5deg)}
+}
+
+.pop{
+    animation:pop .5s ease;
+}
+
+@keyframes pop{
+    0%{transform:scale(.7)}
+    70%{transform:scale(1.08)}
+    100%{transform:scale(1)}
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:700px){
+
+    .hero{
+        min-height:75vh;
+    }
+
+    .hero h1{
+        font-size:65px;
+    }
+
+    .float-item{
+        font-size:28px;
+    }
+
+    .reveal-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .summary{
+        padding:20px;
+    }
+
+    .expense{
+        padding:15px;
+    }
+
+    .expense-amount{
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="float-item f1">🏔️</div>
+    <div class="float-item f2">💸</div>
+    <div class="float-item f3">🚗</div>
+    <div class="float-item f4">🍕</div>
+
+    <div class="hero-content">
+
+        <div class="sticker">
+            MAHABALESHWAR • 5–6 SEPT
+        </div>
+
+        <h1>
+            Trip<br>
+            <span>Wrapped!</span>
+        </h1>
+
+        <p>
+            3 Families • 6 Adults • 1 Villa • 274 KM
+        </p>
+
+        <button class="start-btn"
+                onclick="document.getElementById('settlement').scrollIntoView()">
+            🔓 Reveal The Damage
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SETTLEMENT -->
+
+<section class="section" id="settlement">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Okay... Who Owes AK? 👀
+    </h2>
+
+    <p class="section-sub">
+        Don't worry. Tap your card. We won't judge. 😂
+    </p>
+
+
+    <div class="reveal-grid">
+
+        <!-- MP -->
+
+        <div class="reveal-card mp"
+             onclick="reveal(this)">
+
+            <div class="card-inner">
+
+                <div class="card-front">
+
+                    <div class="emoji">🙈</div>
+
+                    <h3>Mayur Patil</h3>
+
+                    <div class="tap">
+                        TAP TO REVEAL 💥
+                    </div>
+
+                </div>
+
+                <div class="card-back">
+
+                    <div class="amount">
+                        ₹1,450
+                    </div>
+
+                    <div class="pay-text">
+                        Pay AK 💸
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MD -->
+
+        <div class="reveal-card md"
+             onclick="reveal(this)">
+
+            <div class="card-inner">
+
+                <div class="card-front">
+
+                    <div class="emoji">🙈</div>
+
+                    <h3>Mayur Desale</h3>
+
+                    <div class="tap">
+                        TAP TO REVEAL 💥
+                    </div>
+
+                </div>
+
+                <div class="card-back">
+
+                    <div class="amount">
+                        ₹6,962
+                    </div>
+
+                    <div class="pay-text">
+                        Pay AK 💸
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOTAL -->
+
+    <div class="math-card">
+
+        <h3>
+            The Final Damage 😭
+        </h3>
+
+        <div class="math">
+
+            MP → AK
+            <strong>₹1,450</strong>
+
+            <br>
+
+            MD → AK
+            <strong>₹6,962</strong>
+
+            <br><br>
+
+            Total incoming to AK
+
+            <br>
+
+            <strong style="font-size:42px">
+                ₹8,412
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="section">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Trip Stats 📊
+    </h2>
+
+    <p class="section-sub">
+        Because apparently we need analytics for a vacation.
+    </p>
+
+    <div class="summary">
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="icon">💰</div>
+                <strong>₹23,287</strong>
+                <span>TOTAL TRACKED</span>
+            </div>
+
+            <div class="stat">
+                <div class="icon">🚗</div>
+                <strong>274 KM</strong>
+                <span>CAR 1 DISTANCE</span>
+            </div>
+
+            <div class="stat">
+                <div class="icon">⛽</div>
+                <strong>13.4</strong>
+                <span>KM / LITRE</span>
+            </div>
+
+            <div class="stat">
+                <div class="icon">👨‍👩‍👧‍👦</div>
+                <strong>3</strong>
+                <span>FAMILIES</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- EXPENSE LEDGER -->
+
+<section class="section">
+
+<div class="container">
+
+    <h2 class="section-title">
+        Where Did The Money Go? 🧾
+    </h2>
+
+    <p class="section-sub">
+        The receipts have entered the chat.
+    </p>
+
+    <div class="expenses">
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    🏠
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Villa Booking
+                    </div>
+
+                    <div class="expense-cat">
+                        Stay
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹12,934
+            </div>
+
+        </div>
+
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    🍽️
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Jogeshwari Misal
+                    </div>
+
+                    <div class="expense-cat">
+                        Food
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹830
+            </div>
+
+        </div>
+
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    🍕
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Mapro Garden Dinner
+                    </div>
+
+                    <div class="expense-cat">
+                        Food
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹2,514
+            </div>
+
+        </div>
+
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    ☕
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Breakfast + Lunch + Chaha
+                    </div>
+
+                    <div class="expense-cat">
+                        Food • Villa
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹2,500
+            </div>
+
+        </div>
+
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    🍛
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Sadguru Hotel Lunch
+                    </div>
+
+                    <div class="expense-cat">
+                        Food
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹2,109
+            </div>
+
+        </div>
+
+
+        <div class="expense">
+
+            <div class="expense-left">
+
+                <div class="expense-icon">
+                    ⛽
+                </div>
+
+                <div>
+                    <div class="expense-name">
+                        Petrol • Car 1
+                    </div>
+
+                    <div class="expense-cat">
+                        Travel
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="expense-amount">
+                ₹2,400
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SHARE -->
+
+
+
+<footer>
+    Made with ❤️, Excel trauma & questionable financial decisions.
+    <br><br>
+    <b>AK Finance Department™</b>
+</footer>
+
+
+<script>
+
+/* Reveal cards */
+
+function reveal(card){
+
+    card.classList.toggle("open");
+
+    if(card.classList.contains("open")){
+        card.classList.add("pop");
+
+        setTimeout(()=>{
+            card.classList.remove("pop");
+        },500);
+
+        confetti();
+    }
+}
+
+
+/* WhatsApp */
+
+function shareWhatsApp(){
+
+    const message =
+`🏔️ MAHABALESHWAR TRIP — FINAL SETTLEMENT 😎
+
+💸 Mayur Patil → AK : ₹1,450
+💸 Mayur Desale → AK : ₹6,962
+
+🔥 Total to AK : ₹8,412
+
+Trip stats:
+🚗 274 KM
+⛽ 13.4 KM/L
+👨‍👩‍👧‍👦 3 Families
+💰 Total tracked: ₹23,287
+
+Excel ला retirement देण्यात आले आहे 😂`;
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+}
+
+
+/* Copy */
+
+function copySettlement(){
+
+    const text =
+`Mahabaleshwar Trip — Final Settlement
+
+Mayur Patil → AK : ₹1,450
+Mayur Desale → AK : ₹6,962
+
+Total to AK : ₹8,412`;
+
+    navigator.clipboard.writeText(text);
+
+    alert("Settlement copied! 📋");
+}
+
+
+/* Tiny confetti */
+
+function confetti(){
+
+    for(let i=0;i<35;i++){
+
+        const piece=document.createElement("div");
+
+        piece.style.position="fixed";
+        piece.style.width="8px";
+        piece.style.height="14px";
+        piece.style.left=(Math.random()*100)+"vw";
+        piece.style.top="-20px";
+        piece.style.background=
+            ["#7c4dff","#ff4f9a","#ffd84d","#48bfff","#54d99a"][Math.floor(Math.random()*5)];
+        piece.style.borderRadius="3px";
+        piece.style.zIndex="9999";
+        piece.style.pointerEvents="none";
+
+        document.body.appendChild(piece);
+
+        const duration=
+            1200+Math.random()*1000;
+
+        piece.animate(
+            [
+                {
+                    transform:"translateY(0) rotate(0deg)",
+                    opacity:1
+                },
+                {
+                    transform:
+                        `translateY(${window.innerHeight+100}px)
+                         rotate(${Math.random()*900-450}deg)`,
+                    opacity:0
+                }
+            ],
+            {
+                duration:duration,
+                easing:"cubic-bezier(.2,.7,.3,1)"
+            }
+        );
+
+        setTimeout(()=>{
+            piece.remove();
+        },duration);
+    }
+}
+
+</script>
+
+</body>
+</html>
